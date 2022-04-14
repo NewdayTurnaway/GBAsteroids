@@ -10,8 +10,12 @@ namespace GBAsteroids
         [SerializeField] private string _playerDataPath;
         [Tooltip("Название для PlayerWeaponData в Resources")]
         [SerializeField] private string _playerWeaponPath;
+        [Tooltip("Название для EnemyData в Resources")]
+        [SerializeField] private string _enemyDataPath;
         private PlayerData _player;
         private PlayerWeaponData _playerWeapon;
+        private EnemyData _enemyData;
+        private const string DATA = "Data";
 
         public PlayerData Player 
         { 
@@ -19,7 +23,7 @@ namespace GBAsteroids
             {
                 if (_player == null)
                 {
-                    _player = Load<PlayerData>(Path.Combine("Data", _playerDataPath));
+                    _player = Load<PlayerData>(Path.Combine(DATA, _playerDataPath));
                 }
                 return _player; 
             } 
@@ -31,9 +35,21 @@ namespace GBAsteroids
             {
                 if (_playerWeapon == null)
                 {
-                    _playerWeapon = Load<PlayerWeaponData>(Path.Combine("Data", _playerWeaponPath));
+                    _playerWeapon = Load<PlayerWeaponData>(Path.Combine(DATA, _playerWeaponPath));
                 }
                 return _playerWeapon; 
+            }
+        }
+
+        public EnemyData EnemyData
+        {
+            get
+            {
+                if (_enemyData == null)
+                {
+                    _enemyData = Load<EnemyData>(Path.Combine(DATA, _enemyDataPath));
+                }
+                return _enemyData;
             }
         }
 

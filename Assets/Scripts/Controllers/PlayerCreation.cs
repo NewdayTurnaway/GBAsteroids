@@ -16,6 +16,7 @@ namespace GBAsteroids
             GameObject temp = new(NameConstants.PLAYER);
             temp.AddComponent<SpriteRenderer>().sprite = _playerModel.Sprite;
             temp.AddComponent<Rigidbody2D>();
+            temp.AddComponent<PolygonCollider2D>().isTrigger = true;
             return temp.transform;
         }
     }

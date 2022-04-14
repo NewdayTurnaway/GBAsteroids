@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace GBAsteroids
 {
     internal sealed class PlayerWeaponModel

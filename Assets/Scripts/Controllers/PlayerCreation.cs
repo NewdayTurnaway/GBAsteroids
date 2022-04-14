@@ -13,7 +13,7 @@ namespace GBAsteroids
 
         public Transform CreateGameObject()
         {
-            GameObject temp = new("Player");
+            GameObject temp = new(NameConstants.PLAYER);
             temp.AddComponent<SpriteRenderer>().sprite = _playerModel.Sprite;
             temp.AddComponent<Rigidbody2D>();
             return temp.transform;

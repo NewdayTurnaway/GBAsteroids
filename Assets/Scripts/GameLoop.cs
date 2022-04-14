@@ -11,6 +11,7 @@ namespace GBAsteroids
         {
             _controllers = new();
             new GameInitialization(_controllers, _gameData);
+            _controllers.Initialization();
         }
 
         private void Update()

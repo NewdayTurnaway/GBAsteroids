@@ -6,15 +6,18 @@ namespace GBAsteroids
     {
         private readonly PlayerCreation _playerCreation;
         private readonly Transform _player;
-        private readonly Rigidbody2D _rigidbody2D;
+        private readonly Rigidbody2D _playerRigidbody2D;
 
         public PlayerInitialization(PlayerCreation playerCreation)
         {
             _playerCreation = playerCreation;
             _player = _playerCreation.CreateGameObject();
             _player.position = Vector3.zero;
-            _rigidbody2D = _player.gameObject.GetComponent<Rigidbody2D>();
-            _rigidbody2D.gravityScale = 0f;
+            _playerRigidbody2D = _player.gameObject.GetComponent<Rigidbody2D>();
+            _playerRigidbody2D.gravityScale = 0f;
+        }
+        public void Initialization()
+        {
         }
 
         public Transform GetPlayerTransform()
@@ -24,8 +27,7 @@ namespace GBAsteroids
 
         public Rigidbody2D GetPlayerRigidbody2D()
         {
-            return _rigidbody2D;
+            return _playerRigidbody2D;
         }
-
     }
 }

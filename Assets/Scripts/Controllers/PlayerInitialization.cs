@@ -14,7 +14,6 @@ namespace GBAsteroids
             _player = _playerCreation.CreateGameObject();
             _player.position = Vector3.zero;
             _playerRigidbody2D = _player.gameObject.GetComponent<Rigidbody2D>();
-            _playerRigidbody2D.gravityScale = 0f;
         }
         public void Initialization()
         {

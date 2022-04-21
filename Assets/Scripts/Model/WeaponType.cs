@@ -3,6 +3,7 @@ namespace GBAsteroids
     public enum WeaponType
     {
         None = 0, 
-        Bullet = 1
+        SmallBullet = 1,
+        BigBullet = 2
     }
 }

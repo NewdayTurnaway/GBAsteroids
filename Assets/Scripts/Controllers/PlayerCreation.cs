@@ -13,11 +13,11 @@ namespace GBAsteroids
 
         public Transform CreateGameObject()
         {
-            GameObject temp = new(NameConstants.PLAYER);
-            temp.AddComponent<SpriteRenderer>().sprite = _playerModel.Sprite;
-            temp.AddComponent<Rigidbody2D>();
-            temp.AddComponent<PolygonCollider2D>().isTrigger = true;
-            return temp.transform;
+            return new GameObject().SetName(NameConstants.PLAYER)
+                .AddRigidbody2D(0f)
+                .AddSprite(_playerModel.Sprite)
+                .AddPolygonCollider2D(true)
+                .transform;
         }
     }
 }

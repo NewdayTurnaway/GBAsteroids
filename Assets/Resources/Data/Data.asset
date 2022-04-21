@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Data
   m_EditorClassIdentifier: 
   _playerDataPath: PlayerData
-  _playerWeaponPath: PlayerWeaponData
+  _weaponPath: WeaponData
   _enemyDataPath: EnemyData

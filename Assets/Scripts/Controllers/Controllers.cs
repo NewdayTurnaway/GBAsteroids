@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace GBAsteroids
 {
-    internal sealed class Controllers : IExecute
+    internal sealed class Controllers : IInitialization, IExecute
     {
         private readonly List<IInitialization> _initializationControllers;
         private readonly List<IExecute> _executeControllers;
@@ -26,6 +26,13 @@ namespace GBAsteroids
 
             return this;
         }
+        public void Initialization()
+        {
+            for (int i = 0; i < _initializationControllers.Count; i++)
+            {
+                _initializationControllers[i].Initialization();
+            }
+        }
 
         public void Execute()
         {
@@ -34,5 +41,6 @@ namespace GBAsteroids
                 _executeControllers[i].Execute();
             }
         }
+
     }
 }

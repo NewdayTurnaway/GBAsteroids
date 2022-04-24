@@ -12,7 +12,7 @@ namespace GBAsteroids
         [SerializeField] private float _health = 100f;
         [SerializeField] private float _speed;
         private Rigidbody2D _rigidbody2D;
-        private const float INTERPOLATION_STEP = 0.02f;
+        //private const float INTERPOLATION_STEP = 0.02f;
 
         public float Speed => _speed;
 
@@ -24,17 +24,17 @@ namespace GBAsteroids
 
         public void Move(float horizontal, float vertical)
         {
-            Vector3 playerPosition = new(horizontal, vertical);
-            Vector3 direction = (playerPosition - transform.localPosition).normalized;
-            if ((transform.localPosition - playerPosition).sqrMagnitude >= _stopDistance * _stopDistance)
-            {
+            //Vector3 playerPosition = new(horizontal, vertical);
+            //Vector3 direction = (playerPosition - transform.localPosition).normalized;
+            //if ((transform.localPosition - playerPosition).sqrMagnitude >= _stopDistance * _stopDistance)
+            //{
 
-                _rigidbody2D.velocity = Vector2.Lerp(_rigidbody2D.velocity, direction * _speed, INTERPOLATION_STEP);
-            }
-            else
-            {
-                _rigidbody2D.velocity = Vector2.Lerp(_rigidbody2D.velocity, Vector2.zero, INTERPOLATION_STEP);
-            }
+            //    _rigidbody2D.velocity = Vector2.Lerp(_rigidbody2D.velocity, direction * _speed, INTERPOLATION_STEP);
+            //}
+            //else
+            //{
+            //    _rigidbody2D.velocity = Vector2.Lerp(_rigidbody2D.velocity, Vector2.zero, INTERPOLATION_STEP);
+            //}
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -44,24 +44,24 @@ namespace GBAsteroids
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (!collision.gameObject.CompareTag(NameConstants.TAG_AMMUNITION))
-            {
-                return;
-            }
+            //if (!collision.gameObject.CompareTag(NameConstants.TAG_AMMUNITION))
+            //{
+            //    return;
+            //}
 
-            MakeDamage(collision.gameObject.GetComponent<Ammunition>().Damage);
+            //MakeDamage(collision.gameObject.GetComponent<Ammunition>().Damage);
 
-            if (_health <= 0)
-            {
-                gameObject.SetActive(false);
-                //Destroy(gameObject);
-            }
+            //if (_health <= 0)
+            //{
+            //    gameObject.SetActive(false);
+            //    //Destroy(gameObject);
+            //}
         }
 
-        private void MakeDamage(float damage)
-        {
-            _health -= damage;
-        }
+        //private void MakeDamage(float damage)
+        //{
+        //    _health -= damage;
+        //}
 
     }
 }

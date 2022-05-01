@@ -6,6 +6,7 @@ namespace GBAsteroids
         {
             ServiceLocatorMono.GetService<Bullet>();
             PlayerModel playerModel = new(gameData.Player.Sprite, gameData.Player.Health, gameData.Player.Speed, gameData.Player.TurnSpeed);
+            new ApplyPlayerModifier(playerModel);
             PlayerCreation playerCreation = new(playerModel);
             PlayerInitialization playerInitialization = new(playerCreation);
             EnemyFactory enemyFactory = new(gameData.EnemyData);

@@ -20,6 +20,8 @@ namespace GBAsteroids
             ModificationAim modificationAim = new(-50f);
             modificationAim.ApplyModification(shootProjectile);
             _ship = new(moveRigitbody, rotationRigitbody, shootProjectile);
+            //AoEWeapon aoEWeapon = new(50f, 500f, _transformBarrel);
+            //_ship = new(moveRigitbody, rotationRigitbody, aoEWeapon);
         }
 
         public void Execute()

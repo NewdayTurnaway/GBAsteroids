@@ -17,7 +17,11 @@ namespace GBAsteroids
             MoveRigitbody moveRigitbody = new(_rigidbody2D, playerModel.Speed);
             RotationRigitbody rotationRigitbody = new(_rigidbody2D, playerModel.TurnSpeed);
             ShootProjectile shootProjectile = new(projectileCreation, _transformBarrel);
+            ModificationAim modificationAim = new(-50f);
+            modificationAim.ApplyModification(shootProjectile);
             _ship = new(moveRigitbody, rotationRigitbody, shootProjectile);
+            //AoEWeapon aoEWeapon = new(50f, 500f, _transformBarrel);
+            //_ship = new(moveRigitbody, rotationRigitbody, aoEWeapon);
         }
 
         public void Execute()

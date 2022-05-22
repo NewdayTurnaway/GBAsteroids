@@ -16,6 +16,7 @@ namespace GBAsteroids
         private bool _shootStatus = true;
 
         public float ShotForce { get; private set; }
+
         public ShootProjectile(ProjectileCreation projectileCreation, Transform transformBarrel)
         {
             _weapon = (WeaponType)1;
@@ -69,6 +70,11 @@ namespace GBAsteroids
                 shootStatus = true;
                 timer = 0;
             }
+        }
+
+        public Transform GetTransformBarrel()
+        {
+            return _transformBarrel;
         }
     }
 }

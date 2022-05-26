@@ -12,6 +12,8 @@ namespace GBAsteroids
             EnemyFactory enemyFactory = new(gameData.EnemyData);
             EnemyInitialization enemyInitialization = new(enemyFactory);
             ProjectileCreation projectileCreation = new(gameData.WeaponData);
+            UIController uIController = new(playerModel);
+            controllers.Add(uIController);
             controllers.Add(playerInitialization);
             controllers.Add(enemyInitialization);
             controllers.Add(new PlayerController(playerModel, projectileCreation, playerInitialization.GetPlayerTransform(), playerInitialization.GetPlayerRigidbody2D()));

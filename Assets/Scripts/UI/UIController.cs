@@ -16,18 +16,18 @@ namespace GBAsteroids
 
         private const string PATH = "Prefabs\\Canvas";
 
-        public UIController(PlayerModel playerModel)
+        public UIController(PlayerModel playerModel, List<IEnemy> enemies)
         {
             _playerModel = playerModel;
             _uiObject = Object.Instantiate(Resources.Load<GameObject>(PATH));
             _infoUI = new(_uiObject.transform.GetChild(0).GetChild(0).gameObject);
-            _scoreUI = new(_uiObject.transform.GetChild(0).GetChild(1).gameObject);
+            _scoreUI = new(_uiObject.transform.GetChild(0).GetChild(1).gameObject, enemies);
         }
 
         public void Initialization()
         {
             _infoUI.TextStats.text = UIConstants.HEATH + _playerModel.Health;
-            _scoreUI.TextScore.text = UIConstants.SCORE + 0;
+            _scoreUI.TextScore.text = UIConstants.SCORE + Interpreter.ScoreInterpreter(_scoreUI.Score);
             //_scoreUI.TextScore.text = UIConstants.SCORE + Interpreter.ScoreInterpreter(2100500);
             //_scoreUI.TextScore.text = UIConstants.SCORE + Interpreter.FormulaInterpreter("(10+5-3)/6");
         }

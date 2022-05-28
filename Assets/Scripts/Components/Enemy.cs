@@ -47,5 +47,15 @@ namespace GBAsteroids
         {
             OnCollisionEnterChange?.Invoke(this, collision);
         }
+
+        private void OnEnable()
+        {
+            Log(new ConsoleDisplay());
+        }
+
+        public void Log(IVisit visit)
+        {
+            visit.Visit(this, new InfoLog(name, Health, Speed));
+        }
     }
 }

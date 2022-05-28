@@ -5,12 +5,15 @@ namespace GBAsteroids
 {
     public interface IEnemy : IMove
     {
-        public event Action<IEnemy, Collision2D> OnCollisionEnterChange;
-        public event Action ChangeScore;
-        public float Health { get; set; }
-        public float StopDistance { get ; }
-        public void Death();
-        public Transform GetPlayerTransform();
-        public Rigidbody2D GetPlayerRigidbody2D();
+        event Action<IEnemy, Collision2D> OnCollisionEnterChange;
+        event Action ChangeScore;
+        float Health { get; set; }
+        float StopDistance { get ; }
+        
+        void Death();
+        Transform GetPlayerTransform();
+        Rigidbody2D GetPlayerRigidbody2D();
+        void Log(IVisit visit);
+
     }
 }

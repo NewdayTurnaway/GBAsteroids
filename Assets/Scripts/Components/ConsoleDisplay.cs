@@ -6,7 +6,7 @@ namespace GBAsteroids
     {
         public void Visit(IEnemy enemy, InfoLog infoLog)
         {
-            Debug.Log($"Имя: {infoLog.Name} | Здоровье: {infoLog.Health} | Скорость: {infoLog.Speed}");
+            Debug.Log($"РРјСЏ: {infoLog.Name} | Р—РґРѕСЂРѕРІСЊРµ: {infoLog.Health} | РЎРєРѕСЂРѕСЃС‚СЊ: {infoLog.Speed}");
         }
     } 
 }

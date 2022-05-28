@@ -150,4 +150,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stopDistance: 2
-  _speed: 5
+  _health: 100
+  _speed: 7

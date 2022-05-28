@@ -8,12 +8,12 @@ namespace GBAsteroids
     {
         [Tooltip("Название для PlayerData в Resources")]
         [SerializeField] private string _playerDataPath;
-        [Tooltip("Название для PlayerWeaponData в Resources")]
-        [SerializeField] private string _playerWeaponPath;
+        [Tooltip("Название для WeaponData в Resources")]
+        [SerializeField] private string _weaponPath;
         [Tooltip("Название для EnemyData в Resources")]
         [SerializeField] private string _enemyDataPath;
         private PlayerData _player;
-        private PlayerWeaponData _playerWeapon;
+        private WeaponData _weaponData;
         private EnemyData _enemyData;
         private const string DATA = "Data";
 
@@ -29,15 +29,15 @@ namespace GBAsteroids
             } 
         }
 
-        public PlayerWeaponData PlayerWeapon 
+        public WeaponData WeaponData 
         {
             get 
             {
-                if (_playerWeapon == null)
+                if (_weaponData == null)
                 {
-                    _playerWeapon = Load<PlayerWeaponData>(Path.Combine(DATA, _playerWeaponPath));
+                    _weaponData = Load<WeaponData>(Path.Combine(DATA, _weaponPath));
                 }
-                return _playerWeapon; 
+                return _weaponData; 
             }
         }
 

@@ -8,13 +8,13 @@ namespace GBAsteroids
     internal sealed class ProjectilePool
     {
         private readonly Dictionary<WeaponType, HashSet<Ammunition>> _projectilePool;
-        private readonly Ammunition _prefabAmmunition;
+        private readonly IProjectileCreate _projectileCreate;
         private readonly int _capacityPool;
         private readonly Transform _rootPool;
 
-        public ProjectilePool(Ammunition prefabAmmunition, int capacityPool)
+        public ProjectilePool(IProjectileCreate projectileCreate, int capacityPool)
         {
-            _prefabAmmunition = prefabAmmunition;
+            _projectileCreate = projectileCreate;
             _projectilePool = new();
             _capacityPool = capacityPool;
             if (!_rootPool)
@@ -29,8 +29,8 @@ namespace GBAsteroids
 
             switch (type)
             {
-                case WeaponType.Bullet:
-                    result = GetProjectile(GetListAmmunition(type));
+                case WeaponType k when k > 0:
+                    result = GetProjectile(type, GetListAmmunition(type));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
@@ -44,19 +44,19 @@ namespace GBAsteroids
             return _projectilePool.ContainsKey(type) ? _projectilePool[type] : _projectilePool[type] = new(); 
         }
 
-        private Ammunition GetProjectile(HashSet<Ammunition> ammunitions)
+        private Ammunition GetProjectile(WeaponType type, HashSet<Ammunition> ammunitions)
         {
             Ammunition projectile = ammunitions.FirstOrDefault(a => !a.gameObject.activeSelf);
             if (projectile == null)
             {
                 for (int i = 0; i < _capacityPool; i++)
                 {
-                    Ammunition instantiate = GameObject.Instantiate(_prefabAmmunition);
+                    Ammunition instantiate = _projectileCreate.CreateProjectile(type);
                     ReturnToPool(instantiate.transform);
                     ammunitions.Add(instantiate);
                 }
 
-                GetProjectile(ammunitions);
+                GetProjectile(type, ammunitions);
             }
             projectile = ammunitions.FirstOrDefault(a => !a.gameObject.activeSelf);
             return projectile;

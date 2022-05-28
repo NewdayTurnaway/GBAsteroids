@@ -6,22 +6,27 @@ namespace GBAsteroids
     {
         private readonly IEnemyFactory _enemyFactory;
         private readonly CompositeMove _compositeMove;
-        private readonly List<IEnemy> _enemies;
+        private List<IEnemy> _enemies;
 
         public EnemyInitialization(IEnemyFactory enemyFactory)
         {
             _enemyFactory = enemyFactory;
             _compositeMove = new();
-            IEnemy enemy = _enemyFactory.CreateEnemy(EnemyType.Small);
+            AddEnemy(EnemyType.Small);
+        }
+
+        public void Initialization()
+        {
+        }
+
+        public void AddEnemy(EnemyType type)
+        {
+            IEnemy enemy = _enemyFactory.CreateEnemy(type);
             _compositeMove.AddUnit(enemy);
             _enemies = new List<IEnemy>
             {
                 enemy
             };
-        }
-
-        public void Initialization()
-        {
         }
 
         public IMove GetMoveEnemies()

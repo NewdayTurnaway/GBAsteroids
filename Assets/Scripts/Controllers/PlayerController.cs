@@ -10,13 +10,13 @@ namespace GBAsteroids
         private readonly Transform _transformBarrel;
         private readonly Ship _ship;
 
-        public PlayerController(PlayerModel playerModel, PlayerWeaponModel playerWeaponModel, Transform transformBarrel, Rigidbody2D rigidbody2D)
+        public PlayerController(PlayerModel playerModel, ProjectileCreation projectileCreation, Transform transformBarrel, Rigidbody2D rigidbody2D)
         {
             _rigidbody2D = rigidbody2D;
             _transformBarrel = transformBarrel;
             MoveRigitbody moveRigitbody = new(_rigidbody2D, playerModel.Speed);
             RotationRigitbody rotationRigitbody = new(_rigidbody2D, playerModel.TurnSpeed);
-            ShootProjectile shootProjectile = new(playerWeaponModel, _transformBarrel);
+            ShootProjectile shootProjectile = new(projectileCreation, _transformBarrel);
             _ship = new(moveRigitbody, rotationRigitbody, shootProjectile);
         }
 

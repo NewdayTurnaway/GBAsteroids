@@ -1,22 +1,26 @@
+using System;
 using UnityEngine;
 
 namespace GBAsteroids
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    [RequireComponent(typeof(BoxCollider2D))]
+    [RequireComponent(typeof(SpriteRenderer))]
     public abstract class Ammunition : MonoBehaviour
     {
-        [SerializeField] private WeaponType _weaponType;
+        [SerializeField] private Sprite _sprite;
         [SerializeField] private float _damage;
         [SerializeField] private float _shotForce;
         [SerializeField] private float _timeToDestroy;
         private Rigidbody2D _rigidbody2D;
+        private SpriteRenderer _spriteRenderer;
         private Transform _rootPool;
+        public float ShotForce => _shotForce;
+        public float Damage => _damage;
 
         private void Awake()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
-            _rigidbody2D.gravityScale = 0f;
+            _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         private void OnBecameInvisible()
@@ -27,9 +31,16 @@ namespace GBAsteroids
             }
         }
 
-        internal void SetAmmunitionFields(PlayerWeaponModel playerWeaponModel)
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            _weaponType = playerWeaponModel.WeaponType;
+            ReturnToPool();
+        }
+
+        internal void SetAmmunitionFields(WeaponModel playerWeaponModel)
+        {
+            tag = NameConstants.TAG_AMMUNITION;
+            _sprite = playerWeaponModel.Sprite;
+            _spriteRenderer.sprite = _sprite;
             _damage = playerWeaponModel.Damage;
             _shotForce = playerWeaponModel.ShotForce;
             _timeToDestroy = playerWeaponModel.TimeToDestroy;
@@ -53,6 +64,7 @@ namespace GBAsteroids
                 return _rootPool;
             }
         }
+
 
         public void ActiveAmmunition(Vector3 position, Quaternion rotation)
         {

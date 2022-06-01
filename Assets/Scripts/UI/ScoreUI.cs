@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -5,20 +6,27 @@ namespace GBAsteroids
 {
     internal sealed class ScoreUI : BaseUI
     {
-        public int score;
-        
+        private int _score = 0;
+
         private TextMeshProUGUI _textScore;
         
         public TextMeshProUGUI TextScore { get => _textScore; set => _textScore = value; }
+        public int Score { get => _score; set => _score = value; }
 
-        public ScoreUI(GameObject panel) : base(panel)
+        public ScoreUI(GameObject panel, List<IEnemy> enemies) : base(panel)
         {
             TextScore = _panel.GetComponent<TextMeshProUGUI>();
+            ConnectListener(this, enemies);
         }
 
-        public void AddScore()
+        private void ConnectListener(ScoreUI scoreUI, List<IEnemy> enemies)
         {
-            score++;
+            ListenerDeath listenerDeath = new(scoreUI);
+
+            for (var i = 0; i < enemies.Count; i++)
+            {
+                listenerDeath.Add(enemies[i]);
+            }
         }
 
         public override void Disable()

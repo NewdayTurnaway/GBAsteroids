@@ -15,5 +15,5 @@ MonoBehaviour:
   _enemyInfos:
   - Type: 1
     EnemyPrefab: {fileID: 2009108118905640704, guid: 549c0826cbed29246b2064b52fa795e0, type: 3}
-  - Type: 1
-    EnemyPrefab: {fileID: 2009108118905640704, guid: 549c0826cbed29246b2064b52fa795e0, type: 3}
+  - Type: 2
+    EnemyPrefab: {fileID: 2009108118905640704, guid: 3724f41452865b84e80c67f93c38e2a4, type: 3}

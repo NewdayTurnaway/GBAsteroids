@@ -12,7 +12,7 @@ namespace GBAsteroids
         {
             _playerCreation = playerCreation;
             _player = _playerCreation.CreateGameObject();
-            _player.position = Vector3.zero;
+            _player.position = new Vector3(0, -10, 0);
             _playerRigidbody2D = _player.gameObject.GetComponent<Rigidbody2D>();
         }
         public void Initialization()

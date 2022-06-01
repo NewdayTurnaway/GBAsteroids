@@ -4,25 +4,26 @@ namespace GBAsteroids
 {
     public sealed class CompositeMove : IMove
     {
-        private readonly List<IMove> _moves = new();
+        private readonly List<IEnemy> _enemies = new();
 
         public float Speed { get; }
 
-        public void AddUnit(IMove unit)
+        public void AddUnit(IEnemy unit)
         {
-            _moves.Add(unit);
+            _enemies.Add(unit);
         }
 
-        public void RemoveUnit(IMove unit)
+        public void RemoveUnit(IEnemy unit)
         {
-            _moves.Remove(unit);
+            _enemies.Remove(unit);
         }
 
         public void Move(float horizontal, float vertical)
         {
-            for (var i = 0; i < _moves.Count; i++)
+            for (var i = 0; i < _enemies.Count; i++)
             {
-                _moves[i].Move(horizontal, vertical);
+                MoveRigitbodyFollow follow = new(_enemies[i].GetPlayerRigidbody2D(), _enemies[i].GetPlayerTransform().localPosition, _enemies[i].Speed, _enemies[i].StopDistance);
+                follow.Move(horizontal, vertical);
             }
         }
     }

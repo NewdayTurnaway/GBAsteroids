@@ -8,5 +8,5 @@ namespace GBAsteroids
         {
             Debug.Log($"Имя: {infoLog.Name} | Здоровье: {infoLog.Health} | Скорость: {infoLog.Speed}");
         }
-    } 
+    }
 }

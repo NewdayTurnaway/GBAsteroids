@@ -17,27 +17,27 @@ namespace GBAsteroids
         private EnemyData _enemyData;
         private const string DATA = "Data";
 
-        public PlayerData Player 
-        { 
-            get 
+        public PlayerData Player
+        {
+            get
             {
                 if (_player == null)
                 {
                     _player = Load<PlayerData>(Path.Combine(DATA, _playerDataPath));
                 }
-                return _player; 
-            } 
+                return _player;
+            }
         }
 
-        public WeaponData WeaponData 
+        public WeaponData WeaponData
         {
-            get 
+            get
             {
                 if (_weaponData == null)
                 {
                     _weaponData = Load<WeaponData>(Path.Combine(DATA, _weaponPath));
                 }
-                return _weaponData; 
+                return _weaponData;
             }
         }
 

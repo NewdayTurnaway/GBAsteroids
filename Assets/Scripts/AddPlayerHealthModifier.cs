@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace GBAsteroids
 {
     internal sealed class AddPlayerHealthModifier : PlayerModifier

@@ -11,7 +11,7 @@ namespace GBSnakeMVVM
 
     public interface IFoodModel : IModel
     {
-        AreaSpawn AreaSpawn { get; } 
+        AreaSpawn AreaSpawn { get; }
         float SpeedIncrease { get; }
-    } 
+    }
 }

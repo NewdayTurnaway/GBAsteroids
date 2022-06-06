@@ -15,11 +15,11 @@ namespace GBAsteroids
 
         internal Controllers Add(IController controller)
         {
-            if(controller is IInitialization initializationControllers)
+            if (controller is IInitialization initializationControllers)
             {
                 _initializationControllers.Add(initializationControllers);
             }
-            if(controller is IExecute executeControllers)
+            if (controller is IExecute executeControllers)
             {
                 _executeControllers.Add(executeControllers);
             }

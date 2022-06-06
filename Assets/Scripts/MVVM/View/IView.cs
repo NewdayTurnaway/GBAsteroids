@@ -5,9 +5,9 @@ namespace GBSnakeMVVM
         IViewModel ViewModel { get; }
         void Activate();
         void Deactivate();
-    } 
+    }
 
-    public interface IView<in T>: IView where T : IViewModel
+    public interface IView<in T> : IView where T : IViewModel
     {
         void Initialize(T viewModel);
     }

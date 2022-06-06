@@ -9,7 +9,7 @@ namespace GBAsteroids
         private int _score = 0;
 
         private TextMeshProUGUI _textScore;
-        
+
         public TextMeshProUGUI TextScore { get => _textScore; set => _textScore = value; }
         public int Score { get => _score; set => _score = value; }
 

@@ -30,7 +30,7 @@ namespace GBAsteroids
         {
             _situation.Request();
 
-            if(_situation.State.GetType() == typeof(EndState))
+            if (_situation.State.GetType() == typeof(EndState))
             {
                 _inputHorizontal = Input.GetAxis(InputConstants.HORIZONTAL);
                 _inputVertical = Input.GetAxis(InputConstants.VERTICAL);

@@ -15,11 +15,11 @@ namespace GBAsteroids
         public static T FindService<T>(bool createObjectNotFound = true) where T : Object
         {
             T type = Object.FindObjectOfType<T>();
-            
+
             if (type != null)
             {
                 _serviceContainer.Add(typeof(T), type);
-            } 
+            }
             else if (createObjectNotFound)
             {
                 GameObject gameObject = new(typeof(T).Name, typeof(T));

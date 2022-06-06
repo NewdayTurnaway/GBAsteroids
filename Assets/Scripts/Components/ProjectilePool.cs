@@ -25,23 +25,17 @@ namespace GBAsteroids
 
         public Ammunition GetAmmunition(WeaponType type)
         {
-            Ammunition result;
-
-            switch (type)
+            Ammunition result = type switch
             {
-                case WeaponType k when k > 0:
-                    result = GetProjectile(type, GetListAmmunition(type));
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
-            }
-
+                WeaponType k when k > 0 => GetProjectile(type, GetListAmmunition(type)),
+                _ => throw new ArgumentOutOfRangeException(nameof(type), type, null),
+            };
             return result;
         }
 
         private HashSet<Ammunition> GetListAmmunition(WeaponType type)
         {
-            return _projectilePool.ContainsKey(type) ? _projectilePool[type] : _projectilePool[type] = new(); 
+            return _projectilePool.ContainsKey(type) ? _projectilePool[type] : _projectilePool[type] = new();
         }
 
         private Ammunition GetProjectile(WeaponType type, HashSet<Ammunition> ammunitions)

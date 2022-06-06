@@ -26,7 +26,7 @@ namespace GBSnakeMVVM
         [SerializeField]
         private float _speedIncrease = 0.5f;
         [SerializeField]
-        private AreaSpawn areaSpawn;
+        private AreaSpawn _areaSpawn;
 
         private void Awake()
         {
@@ -38,7 +38,7 @@ namespace GBSnakeMVVM
             _snakeModel = new(_snakeSegment, _speed, _rotationSpeed, _offsetTail);
             _snakeViewModel = new(_snakeModel);
 
-            _foodModel = new(areaSpawn, _speedIncrease);
+            _foodModel = new(_areaSpawn, _speedIncrease);
             _foodViewModel = new(_foodModel);
 
             _snakeView = Resources.FindObjectsOfTypeAll<SnakeView>()[0];
@@ -54,5 +54,5 @@ namespace GBSnakeMVVM
         {
             _snakeViewModel.Execute();
         }
-    } 
+    }
 }

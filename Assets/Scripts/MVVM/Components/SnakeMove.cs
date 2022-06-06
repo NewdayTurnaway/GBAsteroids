@@ -20,5 +20,5 @@ namespace GBSnakeMVVM
             _transform.Translate(_speed * Time.deltaTime * Vector2.up, Space.Self);
             _transform.Rotate(_rotationSpeed * -horizontal * Time.deltaTime * Vector3.forward);
         }
-    } 
+    }
 }

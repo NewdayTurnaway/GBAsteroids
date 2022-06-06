@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GBAsteroids
 {
-    public class DataSaveLoad <T>
+    public class DataSaveLoad<T>
     {
         private readonly IData<T> _data;
         private const string DATA = "Scripts\\UnitTest";

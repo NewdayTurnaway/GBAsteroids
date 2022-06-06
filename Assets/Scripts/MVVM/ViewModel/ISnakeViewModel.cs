@@ -11,5 +11,5 @@ namespace GBSnakeMVVM
         void InitializeViewModel(Transform transform);
         void Reset();
         void EatFood(float speedIncrease);
-    } 
+    }
 }

@@ -8,9 +8,9 @@ namespace GBAsteroids
         public T Load(string path = null)
         {
             string loadAllText = File.ReadAllText(path);
-            return JsonUtility.FromJson<T>(loadAllText);;
+            return JsonUtility.FromJson<T>(loadAllText);
         }
-        
+
         public T[] LoadWithJsonHelper(string path = null)
         {
             string loadAllText = File.ReadAllText(path);

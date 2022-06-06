@@ -29,7 +29,7 @@ namespace GBAsteroids
             component.isTrigger = isTrigger;
             return gameObject;
         }
-        
+
         public static GameObject AddPolygonCollider2D(this GameObject gameObject, bool isTrigger)
         {
             PolygonCollider2D component = gameObject.GetOrAddComponent<PolygonCollider2D>();
@@ -43,8 +43,8 @@ namespace GBAsteroids
             component.sprite = sprite;
             return gameObject;
         }
-        
-        public static GameObject AddSprite(this GameObject gameObject, Sprite sprite , Color color)
+
+        public static GameObject AddSprite(this GameObject gameObject, Sprite sprite, Color color)
         {
             SpriteRenderer component = gameObject.GetOrAddComponent<SpriteRenderer>();
             component.sprite = sprite;

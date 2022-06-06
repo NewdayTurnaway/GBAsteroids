@@ -12,7 +12,7 @@ namespace GBAsteroids
 
         public void Add(PlayerModifier playerModifier)
         {
-            if(Next != null)
+            if (Next != null)
             {
                 Next.Add(playerModifier);
             }
@@ -23,6 +23,5 @@ namespace GBAsteroids
         }
 
         public virtual void Handle() => Next?.Handle();
-
     }
 }

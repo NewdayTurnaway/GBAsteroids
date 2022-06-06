@@ -994,7 +994,7 @@ MonoBehaviour:
   _rotationSpeed: 200
   _offsetTail: 1.1
   _speedIncrease: 0.5
-  areaSpawn:
+  _areaSpawn:
     XMin: -22
     XMax: 22
     YMin: -10

@@ -15,7 +15,7 @@ namespace GBAsteroids
         {
             enemy.OnCollisionEnterChange += MakeAmmunitionDamage;
         }
-        
+
         public void Remove(IEnemy enemy)
         {
             enemy.OnCollisionEnterChange -= MakeAmmunitionDamage;

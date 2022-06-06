@@ -27,8 +27,8 @@ namespace GBSnakeMVVM
             component.size = new Vector2(sizeX, sizeY);
             return gameObject;
         }
-        
-        public static GameObject AddSprite(this GameObject gameObject, Sprite sprite , Color color)
+
+        public static GameObject AddSprite(this GameObject gameObject, Sprite sprite, Color color)
         {
             SpriteRenderer component = gameObject.GetOrAddComponent<SpriteRenderer>();
             component.sprite = sprite;

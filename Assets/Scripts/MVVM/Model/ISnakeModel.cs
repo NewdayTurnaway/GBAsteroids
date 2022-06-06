@@ -8,5 +8,5 @@ namespace GBSnakeMVVM
         float Speed { get; set; }
         float RotationSpeed { get; }
         float OffsetTail { get; }
-    } 
+    }
 }
